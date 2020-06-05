@@ -11,17 +11,17 @@ List of resources and notes for passing the Certified Kubernetes Application Dev
 
 
 ## Current Kubernetes Version (EXAM)
-Version: 1.14
+Version: 1.17
 
 ## Important vi Tips
 
-  - 'dG' - Deletes contents from cursor to end of file. This is very useful when editing YAML files.
+  - 'd$' - Deletes contents from cursor to end of file. This is very useful when editing YAML files.
   - 'ZZ' - Save and exit quickly.
 
 ## kubectl Tips
-To set nano as your editor for 'kubectl edit'
+To set vim as your editor for 'kubectl edit'
 ```
-export KUBE_EDITOR="nano"
+export KUBE_EDITOR="vim"
 ```
 
 ## Outline
@@ -39,7 +39,7 @@ Okay, this section is new and contains some general pointers to help pass the ex
 First, as discussed later, the exam is primarily about speed. With that in mind, the best way to approach the moderate to complex questions is to generate the initial YAML via the dry run flag. Then, edit the file with either vi or nano, and then create the required resource. The steps are outlined below.
 ```
 $ kubectl run nginx --image=nginx --restart=Never --dry-run -o yaml > mypod.yaml
-$ nano mypod.yaml
+$ vi mypod.yaml
 $ kubectl create -f mypod.yaml
 pod "nginx" created
 ```
@@ -47,7 +47,7 @@ There you go. If you're not satisfied with the results. Delete the resource, re-
 ```
 $ kubectl delete -f mypod.yaml
 pod "nginx" deleted
-$ nano mypod.yaml
+$ vi mypod.yaml
 $ kubectl create -f mypod.yaml
 pod "nginx" created
 ```
